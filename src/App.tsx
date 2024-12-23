@@ -1,13 +1,16 @@
 import React from 'react';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from './components/canvas/DndContext';
 import Canvas from './components/canvas/Canvas';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
+  console.log('App rendered');
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Canvas />
-    </DndProvider>
+    <ErrorBoundary>
+      <DndProvider>
+        <Canvas />
+      </DndProvider>
+    </ErrorBoundary>
   );
 }
 
